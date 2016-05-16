@@ -1,13 +1,14 @@
 # Charbon WP boilerplate
 
-Boilerplate to use Wordpress with the latest best practices:
+Boilerplate to use Wordpress with the latest good practices:
 
-* Isolate dependencies (core and plugins), content, and our source code
-* Building automatisation with Webpack
+* Isolate dependencies (core and plugins), content, and theme source code
+* Upgrade WP and plugins with Composer
+* Building with Webpack
 * Sass and ES6 stack
 
 ## Install
-You need to install composer, node and npm. After that, you can start a new project with :
+You need to install composer, node and npm. After that, you can start a new project with:
 ```
 npm run create
   "Init the boilerplate"
@@ -27,15 +28,15 @@ Note: after the WP install, don't forget to activate your theme and edit the loc
 * Theme options
 
 ### Themes
-* Cleanup the DOM and useless libraries)
+* Cleanup the DOM and useless libraries
 * BEM classnames (menu, body, post, page)
-* Share social
+* Share in social networks
 * HTML5 History and animate
 
 ### Building with Webpack
 * Styles with Sass/Susy/Breakpoint
 * Scripts with ES6/Babel
-* Copy the build in the theme location
+* Copy the build in "wp-content/theme/themename"
 
 ## WP Plugins included
 * CMB2 (for metaboxes and options)
