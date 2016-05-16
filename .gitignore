@@ -7,5 +7,6 @@ s3_website.yml
 vendor
 wp/**
 wp-content/**
+composer.lock
 !.gitkeep
 !README.md
