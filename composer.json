@@ -1,0 +1,30 @@
+{
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/mustardBees/cmb-field-select2"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4",
+    "johnpbloch/wordpress": ">=4.5",
+    "wpackagist-plugin/wp-migrate-db": "0.8",
+    "wpackagist-plugin/wordpress-seo": "3.2.5",
+    "wpackagist-plugin/wp-super-cache": "1.4.8",
+    "wpackagist-plugin/cmb2": "2.2.1",
+    "mustardBees/cmb-field-select2": "dev-master"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp",
+    "installer-paths": {
+      "wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "wp-content/plugins/{$name}/": ["type:wordpress-plugin", "name:mustardBees/cmb-field-select2"],
+      "wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  }
+}

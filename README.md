@@ -10,14 +10,17 @@ Boilerplate to use Wordpress with the latest good practices:
 ## Install
 You need to install composer, node and npm. After that, you can start a new project with:
 ```
-npm run create
-  "Init the boilerplate"
-  "Website URL:" *url*
-  "Theme name:" *name*
-  "DB host:" *dbhost*
-  "DB name:" *dbname*
-  "DB user:" *dbuser*
-  "DB password:" *dbpass*
+composer install
+npm install
+npm run configurate
+  prompt: Website URL:
+  prompt: Theme Directory Name:
+  prompt: DB Host:
+  prompt: DB Name:
+  prompt: DB User:
+  prompt: DB Pass:
+npm start
+
 ```
 Note: after the WP install, don't forget to activate your theme and edit the location of wordpress (add '/wp') in the admin.
 
