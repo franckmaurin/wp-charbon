@@ -1,0 +1,55 @@
+.feed {
+  .post {
+    display: block;
+    text-decoration: none;
+    color: $fg;
+    margin-bottom: 4rem;
+    &__cover {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    &__text {
+
+    }
+    &__category {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      span {
+        @extend .typo-small;
+        position: relative;
+        background: $bg;
+        margin-bottom: 1px;
+        padding: .5rem 1rem;
+        float: left;
+        clear: both;
+        &:after {
+          content: "";
+          opacity: .3;
+          z-index: -1;
+          position: absolute;
+          top: 7px;
+          right: -7px;
+          bottom: -7px;
+          left: 7px;
+          background: url(../images/pattern.svg) repeat bottom right;
+        }
+      }
+    }
+    &__title {
+      @extend .typo-thirdtitle;
+      margin-bottom: .8rem;
+    }
+    &__date {
+      @extend .typo-meta;
+      font-weight: normal;
+    }
+    &__excerpt {
+      @extend .typo-aside;
+    }
+    &:first-child {
+
+    }
+  }
+}

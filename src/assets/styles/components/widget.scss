@@ -1,0 +1,21 @@
+.widget {
+  @extend .typo-aside;
+  padding: 1rem 1.8rem 1.8rem;
+  background: $bgWidget;
+  border-top: solid 3px $border;
+  + * {
+    margin-top: 2rem;
+  }
+
+  &__title {
+    @extend .typo-fourthtitle;
+  }
+
+  a {
+    color: $fg;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.share {
+  &__item {
+    display: inline-block;
+  }
+  &__link {
+    display: block;
+    position: relative;
+    color: #fff;
+    height: 28px;
+    width: 28px;
+    line-height: 28px;
+    text-decoration: none;
+    background-color: black;
+    border-radius: 50%;
+    &--facebook:hover {
+      background-color: #3c5e9e;
+    }
+    &--twitter:hover {
+      background-color: #32a6e1;
+    }
+  }
+  &__icon {
+    width: 28px;
+  }
+}

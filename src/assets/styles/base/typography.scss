@@ -1,0 +1,52 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans|PT+Mono|PT+Serif:400,700);
+
+html {
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Heading */
+body {
+  font: normal 2rem/3.6rem 'PT Sans', 'Helvetica', 'Arial', sans-serif;
+}
+.typo-title {
+  font: 400 6rem/7.2rem 'PT Serif', serif;
+}
+.typo-subtitle {
+  font: normal 3rem/3.6rem  'PT Sans', serif;
+}
+.typo-thirdtitle {
+  font: bold 2.2rem/3.6rem  'PT Sans', serif;
+}
+.typo-fourthtitle {
+  font: 700 1.6rem/3.6rem  'PT Sans', serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.typo-meta {
+  font: 700 1.6rem/3.6rem  'PT Serif', serif;
+}
+.typo-navigation {
+  font: 1.8rem/3.6rem 'PT Sans';
+}
+.typo-citation {
+  font: 1.3rem/2 'PT Mono';
+}
+.typo-aside {
+  font: 1.6rem/1.6 'PT Sans';
+}
+.typo-small {
+  font: 1.3rem/1.4 'PT Serif';
+}
+
+
+/* Normalize */
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+sup, sub {
+  font-size: .6em;
+}

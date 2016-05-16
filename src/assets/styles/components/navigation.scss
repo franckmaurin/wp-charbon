@@ -1,0 +1,50 @@
+/* Navigation */
+.navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  &__title {
+    position: absolute;
+    top: 4rem;
+    left: 1rem;
+    width: 150px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    color: $fgNavigation;
+    font-weight: bold;
+    sub {
+      font-size: .6em;
+    }
+    &:after {
+      display: block;
+      content: "";
+      height: 3px;
+      width: 40px;
+      background: $fgNavigation;
+      margin-top: 10px;
+    }
+  }
+  &__menu {
+    @extend .typo-navigation;
+    position: absolute;
+    right: 1rem;
+    top: 4rem;
+    .menu {
+      &__item {
+        display: inline-block;
+        a {
+          color: $fgNavigation;
+          text-decoration: none;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.customize-support .navigation {
+  top: 32px;
+}

@@ -1,0 +1,106 @@
+.post {
+  &__section .container {
+    padding-top: 3.6rem;
+    padding-bottom: 3.6rem;
+    @include breakpoint($laptop) {
+      padding-top: 7.2rem;
+      padding-bottom: 7.2rem;
+    }
+  }
+}
+
+.post__section,
+.wp-editor {
+  /* Typo */
+  h1 {
+    @extend .typo-title;
+  }
+  h2 {
+    @extend .typo-subtitle;
+  }
+  h3 {
+    @extend .typo-thirdtitle;
+  }
+
+  /* Vertical Rythm */
+  * + * {
+    margin-top: 3.6rem;
+  }
+  * + h2,
+  * + h3,
+  * + h4 {
+    margin-top: 3.6rem;
+  }
+
+  /* Caption */
+  .wp-caption {
+    &-text {
+      margin-top: 0.5rem !important;
+      @extend .typo-small;
+    }
+    br, p {
+      display: none;
+    }
+  }
+
+  /* Citation */
+  blockquote {
+    @extend .typo-citation;
+    border: solid 3px black;
+    padding: 25px;
+    position: relative;
+    background: #fff;
+    margin-bottom: 3.6rem;
+    &:after {
+      content: "";
+      opacity: .3;
+      z-index: -1;
+      position: absolute;
+      top: 13px;
+      right: -13px;
+      bottom: -13px;
+      left: 13px;
+      background: url("../images/pattern.svg") repeat bottom right;
+    }
+  }
+
+  /* Positions */
+  .wp-caption, blockquote {
+    &.alignleft {
+      @include breakpoint($tablet) {
+        float: left;
+        width: 38%;
+        position: relative;
+      }
+      @include breakpoint($laptop) {
+        margin-left: -12%;
+      }
+      + * {
+        @include breakpoint($tablet) {
+          margin-left: 41%;
+        }
+        @include breakpoint($laptop) {
+          margin-left: 30%;
+        }
+      }
+    }
+    &.alignright {
+      @include breakpoint($tablet) {
+        float: right;
+        width: 38%;
+        position: relative;
+      }
+      @include breakpoint($laptop) {
+        margin-right: -12%;
+      }
+      + * {
+        @include breakpoint($tablet) {
+          margin-right: 41%;
+        }
+        @include breakpoint($laptop) {
+          margin-right: 30%;
+        }
+      }
+    }
+  }
+}

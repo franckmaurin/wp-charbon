@@ -1,0 +1,33 @@
+.header {
+  padding: 18rem 0 7.2rem;
+  color: $fgHeader;
+  background-color: $bgHeader;
+  background-repeat: none;
+  background-size: cover;
+  &__before {
+    @extend .typo-fourthtitle;
+  }
+  &__title {
+    @extend .typo-title;
+    @include breakpoint($laptop) {
+      width: 50%;
+    }
+  }
+  &__after {
+    @extend .typo-meta;
+    time {
+      margin-left: 1rem;
+      font-weight: 400;
+    }
+    a {
+      text-transform: uppercase;
+    }
+    .share {
+      float: right;
+    }
+  }
+  &__subtitle {
+    @extend .typo-subtitle;
+  }
+
+}

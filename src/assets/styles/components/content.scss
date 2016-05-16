@@ -1,0 +1,14 @@
+.content__item--enter,
+.content__item--leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0; }
+
+.content__item--enter {
+  opacity: 0;
+  z-index: 2; }
+.content__item--enter.is-active {
+  opacity: 1;
+  transition: opacity .25s ease-in-out; }
+

@@ -1,0 +1,21 @@
+/* Libs */
+@import "~breakpoint-sass/stylesheets/breakpoint";
+
+/* Base */
+@import "base/variables.scss";
+@import "base/mixins.scss";
+@import "base/reset.scss";
+@import "base/typography.scss";
+@import "base/media.scss";
+@import "base/icon.scss";
+
+/* Components */
+@import "components/post.scss";
+
+/**
+ * Specifix
+ */
+body {
+  margin: 1rem;
+  background: $bg;
+}

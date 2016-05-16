@@ -1,0 +1,65 @@
+/**
+ * Grid
+ */
+$susy: (
+  flow: ltr,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+  container: 1200px,
+  container-position: center,
+  columns: 6,
+  gutters: .25,
+  column-width: false,
+  global-box-sizing: border-box,
+  last-flow: to,
+  debug: (
+    // image: show,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: top right,
+  ),
+  use-custom: (
+    background-image: true,
+    background-options: false,
+    box-sizing: true,
+    clearfix: false,
+    rem: true,
+  )
+);
+
+@include layout($susy)
+.container {
+  @include container;
+  position: relative;
+  padding: 0 1rem;
+  @include breakpoint($laptop) {
+    @include show-grid(12);
+  }
+  .feed {
+    @include breakpoint($tablet) {
+      @include container;
+    }
+    @include susy-breakpoint($laptop, 12) {
+      @include span(9);
+      @include show-grid(9);
+    }
+    &__item {
+      @include breakpoint($tablet) {
+        @include gallery(3 of 6)
+      }
+      @include breakpoint($laptop) {
+        @include gallery(4 of 12)
+      }
+
+    }
+  }
+  .sidebar {
+    @include susy-breakpoint($laptop, 12) {
+      @include span(3 last);
+    }
+  }
+}
+.post .container {
+  max-width: 800px;
+}
