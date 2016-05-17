@@ -14,6 +14,7 @@ export default class {
   constructor({ timeout = 0, ready = false }) {
     this.$           = {
       title          : document.querySelector('title'),
+      navigation     : document.querySelector('.navigation'),
       content        : document.querySelector('.content')
     }
     this.context     = {
@@ -42,7 +43,8 @@ export default class {
     this.cache[this.context.url] = {
       title      : this.$.title.innerHTML,
       classNames : $main.className,
-      content    : $main
+      content    : $main,
+      navigation : this.$.navigation.innerHTML
     }
     history.replaceState(this.context.url, this.cache[this.context.url].title, '')
   }
@@ -99,6 +101,8 @@ export default class {
     setTimeout(() => {
       $transitionOld.classList.add('is-active')
       $transitionNew.classList.add('is-active')
+      this.$.navigation.innerHTML = this.cache[url].navigation
+
       setTimeout(() => {
         if ($transitionOld.parentNode === this.$.content) {
           this.$.content.removeChild($transitionOld)
@@ -142,7 +146,8 @@ export default class {
           this.cache[url] = {
             title: this.DOM.querySelector('title').innerHTML,
             classNames: this.DOM.querySelector('.template').className,
-            content: this.DOM.querySelector('.template')
+            content: this.DOM.querySelector('.template'),
+            navigation: this.DOM.querySelector('.navigation').innerHTML
           }
           callback()
         } else {

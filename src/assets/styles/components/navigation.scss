@@ -39,6 +39,19 @@
           color: $fgNavigation;
           text-decoration: none;
           margin-left: 10px;
+          display: block;
+          position: relative;
+          &:after {
+            content: "";
+            height: 3px;
+            width: 0;
+            background: $fg;
+            margin-top: 10px;
+            display: block;
+          }
+        }
+        &--current a:after {
+          animation: showUnderline .2s ease-in-out forwards;
         }
       }
     }
@@ -47,4 +60,13 @@
 
 .customize-support .navigation {
   top: 32px;
+}
+
+@keyframes showUnderline {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 40px;
+  }
 }
