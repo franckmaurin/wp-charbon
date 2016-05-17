@@ -1,5 +1,7 @@
 # Theme Source
 
+Only this directory and its parent need to be versioned.
+
 Example of html tree with BEM convention
 ```
 nav.navigation

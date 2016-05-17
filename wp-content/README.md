@@ -1,6 +1,8 @@
 # Content of Wordpress
 
-Examples:
+Only this directory and your database need an automatic backup policy.
+
+Tree:
 * cache/
 * languages/
 * plugins/
