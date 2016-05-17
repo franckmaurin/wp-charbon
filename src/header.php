@@ -20,11 +20,9 @@
   <div class="container">
     <a class="navigation__title" href="<?php echo esc_url( home_url( '/' ) ); ?>">
       WP Charbon <sub>1.0</sub>
-    </a><!-- .navigation-title -->
-
+    </a>
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
       <?php
-        // Primary navigation menu.
         wp_nav_menu( array(
           'container_class' => 'navigation__menu',
           'theme_location' => 'primary',
