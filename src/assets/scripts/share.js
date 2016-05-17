@@ -2,7 +2,9 @@ export default class {
   constructor() {
     this.$ = {
       facebookLink : document.querySelector('.share__link--facebook'),
-      twitterLink : document.querySelector('.share__link--twitter')
+      twitterLink : document.querySelector('.share__link--twitter'),
+      googleplusLink : document.querySelector('.share__link--googleplus'),
+      pinterestLink : document.querySelector('.share__link--pinterest')
     }
     // init
     if(this.$.facebookLink) {
@@ -10,6 +12,12 @@ export default class {
     }
     if(this.$.twitterLink) {
       this.initTwitter()
+    }
+    if(this.$.googleplusLink) {
+      this.initGoogleplus()
+    }
+    if(this.$.pinterestLink) {
+      this.initPinterest()
     }
   }
 
@@ -27,7 +35,7 @@ export default class {
       })
     }
     this.appendScript('facebook-jssdk', '//connect.facebook.net/fr_FR/sdk.js')
-    this.$.facebookLink.addEventListener('click', (e) => {
+    this.$.facebookLink.addEventListener('click', e => {
       e.preventDefault()
       FB.ui({
         method: 'share',
@@ -39,6 +47,24 @@ export default class {
   /* Twitter */
   initTwitter() {
     this.appendScript('twitter-widget', '//platform.twitter.com/widgets.js')
+  }
+
+  /* Googleplus */
+  initGoogleplus() {
+    this.appendScript('googleplus-widget', '//apis.google.com/js/platform.js')
+    this.$.googleplusLink.addEventListener('click', function(e) {
+      e.preventDefault()
+      window.open(
+        this.href,
+        '',
+        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600'
+      )
+    })
+  }
+
+  /* Pinterest */
+  initPinterest() {
+    // this.appendScript('pinterest-widget', '//assets.pinterest.com/js/pinit.js')
   }
 
   /* Load scripts asynchonously */
