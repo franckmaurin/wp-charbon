@@ -2,9 +2,11 @@
  * History and request
  */
 
+const TICK = 17
 const selectorLinks =
   'a[href^="' + window.location.protocol + '//' + window.location.hostname + '"]'
-  + ':not([href*="wp-content/uploads"]):not([href*="feed"])'
+  + ':not([href*="wp-content/uploads"])'
+  + ':not([href*="feed"])'
   + ':not([href*="wp-admin"])'
   + ':not([href*="wp-login"])'
 
@@ -28,21 +30,27 @@ export default class {
   }
 
   init() {
-    this.bindLinks()
+    this.updateListeners()
 
     // Update the page content when the popstate event is called.
     window.addEventListener('popstate', (event) => {
-      this.updateContent(event.state, true)
+      this.loadPage(event.state)
     })
 
     // Update this history event for the first page.
-    let $main = this.$.content.querySelector('.template')
+    const $main = this.$.content.querySelector('.template')
     this.cache[this.context.url] = {
       title      : this.$.title.innerHTML,
       classNames : $main.className,
       content    : $main
     }
     history.replaceState(this.context.url, this.cache[this.context.url].title, '')
+  }
+
+  updateListeners() {
+    this.unbindLinks()
+    this.bindLinks()
+    this.ready()
   }
 
   // Attach click listeners for each of the nav links.
@@ -55,9 +63,11 @@ export default class {
 
   // Remove click listeners for each of the nav links.
   unbindLinks() {
-    Array.from(this.$.links).forEach(link => {
-      link.removeEventListener('click', this.handleClick)
-    })
+    if(this.$.links) {
+      Array.from(this.$.links).forEach(link => {
+        link.removeEventListener('click', this.handleClick)
+      })
+    }
   }
 
   // Handle click
@@ -65,54 +75,58 @@ export default class {
     event.preventDefault()
     let url = event.currentTarget.href
     if(url !== this.context.url) {
-      this.context.isLoading = true
-      this.context.url = url
-
-      this.loadPage(url, () => {
-        // scroll to top
-        document.body.scrollTop = 0
-        document.documentElement.scrollTop = 0
-
-        this.context.isLoading = false
-        this.updateContent(url)
-        window.history.pushState(url, this.cache['title'], url)
-      })
+      this.loadPage(url, true)
     }
   }
 
   // Update Content
-  updateContent(url, force = false) {
-    const TICK = 17
-    let $transitionOld = document.querySelector('.content__item')
+  updateContent(url) {
     let $transitionNew = document.createElement('div')
     $transitionNew.appendChild(this.cache[url].content)
 
+    let $transitionOld = [].slice.call(document.querySelectorAll('.content__item'))
+    while($transitionOld.length > 1) {
+      this.$.content.removeChild($transitionOld.splice(0, 1)[0])
+    }
+    $transitionOld = $transitionOld[0]
+
+    this.context.url = url
     this.$.title.innerHTML = this.cache[url].title
     this.$.content.appendChild($transitionNew)
 
-    if(force) {
-      $transitionNew.className = 'content__item'
-      this.$.content.removeChild($transitionOld)
-    } else {
-      $transitionOld.className = 'content__item content__item--leave'
-      $transitionNew.className = 'content__item content__item--enter'
+    $transitionOld.className = 'content__item content__item--leave'
+    $transitionNew.className = 'content__item content__item--enter'
+    setTimeout(() => {
+      $transitionOld.classList.add('is-active')
+      $transitionNew.classList.add('is-active')
       setTimeout(() => {
-        $transitionOld.classList.add('is-active')
-        $transitionNew.classList.add('is-active')
-        setTimeout(() => {
+        if ($transitionOld.parentNode === this.$.content) {
           this.$.content.removeChild($transitionOld)
-          $transitionNew.classList.remove('is-active', 'content__item--enter')
-        }, this.timeout + TICK)
-      }, TICK)
-    }
-
-    this.unbindLinks()
-    this.bindLinks()
-    this.ready()
+          this.updateListeners()
+        }
+        $transitionNew.classList.remove('is-active', 'content__item--enter')
+      }, this.timeout + TICK)
+    }, TICK)
   }
 
   // Load html
-  loadPage(url, callback) {
+  loadPage(url, isHistory) {
+    this.context.isLoading = true
+    this.request(url, () => {
+      // scroll to top
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
+
+      this.context.isLoading = false
+      this.updateContent(url)
+      if(isHistory) {
+        window.history.pushState(url, this.cache[url]['title'], url)
+      }
+    })
+  }
+
+  /* Request */
+  request(url, callback) {
     if(this.cache[url]) {
       callback()
       return
@@ -137,5 +151,4 @@ export default class {
       }
     }
   }
-
 }

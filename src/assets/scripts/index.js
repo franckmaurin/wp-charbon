@@ -3,7 +3,7 @@ import Browsering from './browsering'
 
 const share = new Share()
 const browsering = new Browsering({
-  timeout: 1000,
+  timeout: 300,
   ready: () => {
     share.update()
   }
