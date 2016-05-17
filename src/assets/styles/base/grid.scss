@@ -32,6 +32,7 @@ $susy: (
 .container {
   @include container;
   position: relative;
+  z-index: 1;
   padding: 0 1rem;
   @include breakpoint($laptop) {
     @include show-grid(12);
