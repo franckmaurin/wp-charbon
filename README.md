@@ -2,11 +2,11 @@
 
 Boilerplate to use Wordpress with the latest good practices:
 
-## Isolate dependencies, content, and theme source code with a new tree
+## New tree to isolate dependencies, content and theme src/dist
 ```
 wp/ (core of WP = peer dependency)
 wp-content/
-  themes/  (destination for the builded theme)
+  themes/  (theme destination)
   plugins/ (dependencies)
   upload/  (content)
 src/ (theme source)
