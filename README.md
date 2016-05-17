@@ -4,12 +4,12 @@ Boilerplate to use Wordpress with the latest good practices:
 
 ## New tree to isolate dependencies, content and theme src/dist
 ```
-wp/ (core of WP = peer dependency)
-wp-content/
-  themes/  (theme destination)
-  plugins/ (dependencies)
-  upload/  (content)
-src/ (theme source)
+- wp/ (core of WP = peer dependency)
+- wp-content/
+  - themes/  (theme destination)
+  - plugins/ (dependencies)
+  - uploads/ (content)
+- src/ (theme source)
 ```
 
 Now you can easily:
