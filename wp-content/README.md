@@ -10,6 +10,6 @@ Examples:
   * cmb2
   * cmb2-field-select2
 * themes/
-  * *your builded theme*
+  * *your built theme*
 * upgrade/
 * uploads/
