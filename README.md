@@ -2,10 +2,20 @@
 
 Boilerplate to use Wordpress with the latest good practices:
 
-* Isolate dependencies (core and plugins), content, and theme source code
-* Upgrade WP and plugins with Composer
-* Building with Webpack
-* Sass and ES6 stack
+## Isolate dependencies, content, and theme source code with a new tree
+```
+wp/ (core of WP = peer dependency)
+wp-content/
+  themes/  (destination for the builded theme)
+  plugins/ (dependencies)
+  upload/  (content)
+src/ (theme source)
+```
+
+Now you can easily:
+* Manage WP core and plugins with Composer
+* Manage build dependencies with NPM
+* Build ES6/Sass stack with Webpack
 
 ## Install
 You need to install composer, node and npm. After that, you can start a new project with:
@@ -24,7 +34,7 @@ npm start
 ```
 Note: after the WP install, don't forget to activate your theme and edit the location of wordpress (add '/wp') in the admin.
 
-## Features
+## Theme Features
 ### Easy management of data model
 * Custum post types
 * Meta boxes
@@ -39,11 +49,10 @@ Note: after the WP install, don't forget to activate your theme and edit the loc
 ### Building with Webpack
 * Styles with Sass/Susy/Breakpoint
 * Scripts with ES6/Babel
-* Copy the build in "wp-content/theme/themename"
+* Copy the build in "wp-content/theme/theme_name"
 
 ## WP Plugins included
 * CMB2 (for metaboxes and options)
 * WP SEO
 * WP Super Cache
 * WP Migrate DB
-
