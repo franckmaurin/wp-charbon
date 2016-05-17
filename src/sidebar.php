@@ -1,10 +1,6 @@
 <?php
 /**
  * The sidebar containing the main widget area
- *
- * @package WordPress
- * @subpackage CMB2_Example_Theme
- * @since 1.0
  */
 ?>
 
