@@ -22,7 +22,7 @@ You need to install composer, node and npm. After that, you can start a new proj
 ```
 composer install
 npm install
-npm run configurate
+npm run config
   prompt: Website URL:
   prompt: Theme Directory Name:
   prompt: DB Host:
