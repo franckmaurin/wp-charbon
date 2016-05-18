@@ -32,7 +32,7 @@ npm run configurate
 npm start
 
 ```
-Note: after the WP install, don't forget to activate your theme and edit the location of wordpress (add '/wp') in the admin.
+Note: after the WP install, don't forget to activate your theme and edit "Site Address (URL)" (remove "/wp") in the admin.
 
 ## Theme Features
 ### Easy management of data model
