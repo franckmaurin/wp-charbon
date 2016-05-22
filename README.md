@@ -1,5 +1,5 @@
 <div align="center">
-<img src="http://i.imgur.com/TOpKfDi.png" width="150" height="150" alt="Charbon" />
+<img src="http://i.imgur.com/usWTJFH.png" width="150" height="150" alt="Charbon" />
 <h1>WP-Charbon</h1>
 Boilerplate to use Wordpress with the latest good practices
 </div>
