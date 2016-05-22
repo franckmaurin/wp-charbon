@@ -1,6 +1,8 @@
-# Charbon WP boilerplate
-
+<center>
+<img src="http://i.imgur.com/TOpKfDi.png" width="150" height="150" alt="Charbon" />
+<h1>WP-Charbon</h1>
 Boilerplate to use Wordpress with the latest good practices:
+</center>
 
 ## New tree to isolate dependencies, content and theme src/dist
 ```
